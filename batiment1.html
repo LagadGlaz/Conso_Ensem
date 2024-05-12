@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bâtiment 1 - Consommation Énergétique</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo de l'école" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="consommation.html" class="nav-link">Consommation des Bâtiments</a></li>
+                <li><a href="couts.html" class="nav-link">Coûts</a></li>
+                <li><a href="sensibilisation.html" class="nav-link">Sensibilisation</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="batiment1-details">
+            <div class="container">
+                <h1>Détails du Bâtiment 1</h1>
+                <canvas id="batiment1Chart"></canvas>
+                <div>
+                    <label for="periode">Période :</label>
+                    <select name="periode" id="periode">
+                        <option value="jour">Jour</option>
+                        <option value="semaine">Semaine</option>
+                        <option value="mois">Mois</option>
+                        <option value="annee">Année</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sensibilisation à la Consommation Énergétique</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('batiment1Chart').getContext('2d');
+            var batiment1Chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil'],
+                    datasets: [{
+                        label: 'Consommation Énergétique (kWh)',
+                        data: [120, 150, 180, 200, 170, 160, 190],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Écouteur d'événement pour détecter le changement de période
+            document.getElementById('periode').addEventListener('change', function() {
+                var periode = this.value;
+                // Mettre à jour le graphique en fonction de la période sélectionnée
+                // Vous pouvez implémenter la logique pour charger les données appropriées en fonction de la période
+                // Par exemple, en appelant une API ou en récupérant des données stockées localement
+                // Ensuite, mettez à jour les données du graphique et appelez batiment1Chart.update()
+            });
+        });
+    </script>
+</body>
+</html>

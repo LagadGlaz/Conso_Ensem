@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consommation des Bâtiments - Sensibilisation à la Consommation Énergétique</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo de l'école" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="consommation.html" class="nav-link current-page">Consommation des Bâtiments</a></li>
+                <li><a href="couts.html" class="nav-link">Coûts</a></li>
+                <li><a href="sensibilisation.html" class="nav-link">Sensibilisation</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="consommation-batiments">
+            <div class="container">
+                <h1>Consommation des Bâtiments</h1>
+                <p>Choisissez un bâtiment dans la liste ci-dessous pour consulter sa consommation énergétique :</p>
+                <form id="formBatiment" method="GET">
+                    <label for="batiment">Sélectionnez un bâtiment :</label>
+                    <select name="batiment" id="batiment">
+                        <option value="batiment1.html">Bâtiment 1</option>
+                        <option value="batiment2.html">Bâtiment 2</option>
+                        <option value="batiment3.html">Bâtiment 3</option>
+                        <!-- Ajoutez d'autres options si nécessaire -->
+                    </select>
+                    <button type="submit">Voir les détails</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sensibilisation à la Consommation Énergétique</p>
+    </footer>
+
+    <script>
+        document.getElementById('formBatiment').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'action par défaut du formulaire (rechargement de la page)
+
+            var selectedBatiment = document.getElementById('batiment').value; // Récupère la valeur sélectionnée dans la liste déroulante
+            window.location.href = selectedBatiment; // Redirige l'utilisateur vers la page du bâtiment sélectionné
+        });
+    </script>
+</body>
+</html>
